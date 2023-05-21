@@ -55,10 +55,12 @@ const styles = (theme) => ({
     [theme.breakpoints.down("xl")]: {
       width: "auto",
     },
+    borderRadius: 15,
+    
   },
   wrapper: {
     position: "relative",
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.common.backgroundTwo,
     paddingBottom: theme.spacing(2),
   },
   image: {
@@ -79,6 +81,7 @@ const styles = (theme) => ({
     [theme.breakpoints.down("md")]: {
       marginBottom: theme.spacing(3),
     },
+    
   },
   containerFix: {
     [theme.breakpoints.up("md")]: {
@@ -112,11 +115,12 @@ function HeadSection(props) {
                       flexDirection="column"
                       justifyContent="space-between"
                       height="100%"
+                      alignItems="center"
                     >
                       <Box mb={4}>
-                        <Typography variant={isWidthUpLg ? "h3" : "h4"}>
-                          Free Template for building a SaaS app using
-                          Material-UI
+                        <Typography variant={isWidthUpLg ? "h2" : "h4"}>
+                          Finank Digital - Soluciones inteligentes
+                          
                         </Typography>
                       </Box>
                       <div>
@@ -125,30 +129,16 @@ function HeadSection(props) {
                             variant={isWidthUpLg ? "h6" : "body1"}
                             color="textSecondary"
                           >
-                            Lorem ipsum dolor sit amet, consetetur sadipscing
-                            elitr, sed diam nonumy eirmod tempor invidunt
+                            Conoce y disfruta los beneficios y servicios que ponemos a tu disposición
                           </Typography>
                         </Box>
-                        <Button
-                          variant="contained"
-                          color="secondary"
-                          fullWidth
-                          className={classes.extraLargeButton}
-                          classes={{ label: classes.extraLargeButtonLabel }}
-                          href="https://github.com/dunky11/react-saas-template"
-                        >
-                          Download from GitHub
-                        </Button>
+                        
                       </div>
                     </Box>
                   </Grid>
                   <Hidden mdDown>
                     <Grid item md={6}>
-                      <ZoomImage
-                        src={`${process.env.PUBLIC_URL}/images/logged_out/headerImage.jpg`}
-                        className={classes.image}
-                        alt="header example"
-                      />
+                      
                     </Grid>
                   </Hidden>
                 </Box>
@@ -158,7 +148,7 @@ function HeadSection(props) {
         </div>
       </div>
       <WaveBorder
-        upperColor={theme.palette.secondary.main}
+        upperColor={theme.palette.common.backgroundTwo}
         lowerColor="#FFFFFF"
         className={classes.waveBorder}
         animationNegativeDelay={2}

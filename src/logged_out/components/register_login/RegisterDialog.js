@@ -63,7 +63,7 @@ function RegisterDialog(props) {
       loading={isLoading}
       onClose={onClose}
       open
-      headline="Register"
+      headline="Registro"
       onFormSubmit={(e) => {
         e.preventDefault();
         register();
@@ -77,13 +77,13 @@ function RegisterDialog(props) {
             margin="normal"
             required
             fullWidth
-            error={status === "invalidEmail"}
-            label="Email Address"
+            error={status === "Correo inválido"}
+            label="Correo electrónico"
             autoFocus
             autoComplete="off"
             type="email"
             onChange={() => {
-              if (status === "invalidEmail") {
+              if (status === "Correo inválido") {
                 setStatus(null);
               }
             }}
@@ -97,7 +97,7 @@ function RegisterDialog(props) {
             error={
               status === "passwordTooShort" || status === "passwordsDontMatch"
             }
-            label="Password"
+            label="Contraseña"
             inputRef={registerPassword}
             autoComplete="off"
             onChange={() => {
@@ -110,10 +110,10 @@ function RegisterDialog(props) {
             }}
             helperText={(() => {
               if (status === "passwordTooShort") {
-                return "Create a password at least 6 characters long.";
+                return "Debe teber al menos 6 caracteres de longitud.";
               }
               if (status === "passwordsDontMatch") {
-                return "Your passwords dont match.";
+                return "Las contraseñas no coinciden.";
               }
               return null;
             })()}
@@ -129,7 +129,7 @@ function RegisterDialog(props) {
             error={
               status === "passwordTooShort" || status === "passwordsDontMatch"
             }
-            label="Repeat Password"
+            label="Introduzca de nuevo la contraseña"
             inputRef={registerPasswordRepeat}
             autoComplete="off"
             onChange={() => {
@@ -142,10 +142,10 @@ function RegisterDialog(props) {
             }}
             helperText={(() => {
               if (status === "passwordTooShort") {
-                return "Create a password at least 6 characters long.";
+                return "Debe teber al menos 6 caracteres de longitud.";
               }
               if (status === "passwordsDontMatch") {
-                return "Your passwords dont match.";
+                return "Las contraseñas no coinciden.";
               }
             })()}
             FormHelperTextProps={{ error: true }}
@@ -165,7 +165,7 @@ function RegisterDialog(props) {
             }
             label={
               <Typography variant="body1">
-                I agree to the
+                Acepto los 
                 <span
                   className={classes.link}
                   onClick={isLoading ? null : openTermsDialog}
@@ -182,7 +182,7 @@ function RegisterDialog(props) {
                   }}
                 >
                   {" "}
-                  terms of service
+                  Terminos y Condiciones Finank
                 </span>
               </Typography>
             }
@@ -195,14 +195,13 @@ function RegisterDialog(props) {
                 marginTop: theme.spacing(-1),
               }}
             >
-              In order to create an account, you have to accept our terms of
-              service.
+              Para poder crear la cuenta debe aceptar los Terminos y Condiciones
             </FormHelperText>
           )}
           {status === "accountCreated" ? (
             <HighlightedInformation>
-              We have created your account. Please click on the link in the
-              email we have sent to you before logging in.
+              Su cuenta ha sido creada. Verifique el enlace enviado a su correo electrónico
+              antes de iniciar sesión.
             </HighlightedInformation>
           ) : (
             <HighlightedInformation>
@@ -220,7 +219,7 @@ function RegisterDialog(props) {
           color="secondary"
           disabled={isLoading}
         >
-          Register
+          Registrarse
           {isLoading && <ButtonCircularProgress />}
         </Button>
       }

@@ -32,8 +32,8 @@ function Main(props) {
   const selectHome = useCallback(() => {
     smoothScrollTop();
     document.title =
-      "WaVer - Free template for building a SaaS or admin application";
-    setSelectedTab("Home");
+      "Finank Digital";
+    setSelectedTab("Inicio");
   }, [setSelectedTab]);
 
   const selectBlog = useCallback(() => {

@@ -13,7 +13,7 @@ import NavigationDrawer from "../../../shared/components/NavigationDrawer";
 const styles = theme => ({
   appBar: {
     boxShadow: theme.shadows[6],
-    backgroundColor: theme.palette.common.white
+    backgroundColor: "#FFF"
   },
   toolbar: {
     display: "flex",
@@ -21,7 +21,9 @@ const styles = theme => ({
   },
   menuButtonText: {
     fontSize: theme.typography.body1.fontSize,
-    fontWeight: theme.typography.h6.fontWeight
+    fontWeight: theme.typography.h6.fontWeight,
+    marginLeft: 15,
+    color:"#2C3E50"
   },
   brandText: {
     fontFamily: "'Baloo Bhaijaan', cursive",
@@ -45,21 +47,21 @@ function NavBar(props) {
   const menuItems = [
     {
       link: "/",
-      name: "Home",
+      name: "Inicio",
       icon: <HomeIcon className="text-white" />
     },
     {
       link: "/blog",
-      name: "Blog",
+      name: "Mi cuenta",
       icon: <BookIcon className="text-white" />
     },
     {
-      name: "Register",
+      name: "Registro",
       onClick: openRegisterDialog,
       icon: <HowToRegIcon className="text-white" />
     },
     {
-      name: "Login",
+      name: "Iniciar sesión",
       onClick: openLoginDialog,
       icon: <LockOpenIcon className="text-white" />
     }
@@ -73,17 +75,17 @@ function NavBar(props) {
               variant="h4"
               className={classes.brandText}
               display="inline"
-              color="primary"
+              color="#8E44AD"
             >
-              Wa
+              Finank &nbsp;
             </Typography>
             <Typography
               variant="h4"
               className={classes.brandText}
               display="inline"
-              color="secondary"
+              color="#2C3E50"
             >
-              Ver
+              Digital
             </Typography>
           </div>
           <div>

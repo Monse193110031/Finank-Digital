@@ -43,15 +43,15 @@ function ChangePassword(props) {
       >
         <DialogContent className={classes.dialogContent}>
           <Typography paragraph>
-            Enter your email address below and we will send you instructions on
-            how to reset your password.
+            Introduzca su correo electrónico opara enviarle las instrucciones
+            de reestablecimiento de contraseña.
           </Typography>
           <TextField
             variant="outlined"
             margin="dense"
             required
             fullWidth
-            label="Email Address"
+            label="Correo electrónico"
             autoFocus
             type="email"
             autoComplete="off"
@@ -59,7 +59,7 @@ function ChangePassword(props) {
         </DialogContent>
         <DialogActions className={classes.dialogActions}>
           <Button onClick={onClose} disabled={isLoading}>
-            Cancel
+            Cancelar
           </Button>
           <Button
             type="submit"
@@ -67,7 +67,7 @@ function ChangePassword(props) {
             color="secondary"
             disabled={isLoading}
           >
-            Reset password
+            Restablecer contraseña
             {isLoading && <ButtonCircularProgress />}
           </Button>
         </DialogActions>

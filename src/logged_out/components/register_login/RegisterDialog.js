@@ -1,11 +1,19 @@
 import React, { useState, useCallback, useRef, Fragment } from "react";
 import PropTypes from "prop-types";
-import { FormHelperText, TextField, Button, Checkbox, Typography, FormControlLabel } from "@mui/material";
-import withStyles from '@mui/styles/withStyles';
+import {
+  FormHelperText,
+  TextField,
+  Button,
+  Checkbox,
+  Typography,
+  FormControlLabel,
+} from "@mui/material";
+import withStyles from "@mui/styles/withStyles";
 import FormDialog from "../../../shared/components/FormDialog";
 import HighlightedInformation from "../../../shared/components/HighlightedInformation";
 import ButtonCircularProgress from "../../../shared/components/ButtonCircularProgress";
 import VisibilityPasswordTextField from "../../../shared/components/VisibilityPasswordTextField";
+import { createBankAccount, createClient, createUser } from "../../../DB/db";
 
 const styles = (theme) => ({
   link: {
@@ -31,13 +39,16 @@ function RegisterDialog(props) {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const registerTermsCheckbox = useRef();
   const registerPassword = useRef();
+  const registerEmail = useRef();
   const registerPasswordRepeat = useRef();
 
-  const register = useCallback(() => {
+  const register = useCallback(async () => {
     if (!registerTermsCheckbox.current.checked) {
       setHasTermsOfServiceError(true);
       return;
     }
+    console.log(registerEmail.current.value);
+    console.log(registerPasswordRepeat.current.value);
     if (
       registerPassword.current.value !== registerPasswordRepeat.current.value
     ) {
@@ -46,9 +57,17 @@ function RegisterDialog(props) {
     }
     setStatus(null);
     setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1500);
+    const client = await createUser({
+      email: registerEmail.current.value,
+      contrasenia: registerPassword.current.value,
+    });
+    console.log("cliente", client);
+    const bankAccount = await createBankAccount({
+      numeroCuenta: 123,
+      saldo: 0.0,
+      idCliente: client.idCliente,
+    });
+    setIsLoading(false);
   }, [
     setIsLoading,
     setStatus,
@@ -82,6 +101,7 @@ function RegisterDialog(props) {
             autoFocus
             autoComplete="off"
             type="email"
+            inputRef={registerEmail}
             onChange={() => {
               if (status === "Correo inválido") {
                 setStatus(null);
@@ -165,7 +185,7 @@ function RegisterDialog(props) {
             }
             label={
               <Typography variant="body1">
-                Acepto los 
+                Acepto los
                 <span
                   className={classes.link}
                   onClick={isLoading ? null : openTermsDialog}
@@ -200,8 +220,8 @@ function RegisterDialog(props) {
           )}
           {status === "accountCreated" ? (
             <HighlightedInformation>
-              Su cuenta ha sido creada. Verifique el enlace enviado a su correo electrónico
-              antes de iniciar sesión.
+              Su cuenta ha sido creada. Verifique el enlace enviado a su correo
+              electrónico antes de iniciar sesión.
             </HighlightedInformation>
           ) : (
             <HighlightedInformation>

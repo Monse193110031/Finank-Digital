@@ -4,8 +4,8 @@ import classNames from "classnames";
 import { Grid, Box } from "@mui/material";
 import withStyles from "@mui/styles/withStyles";
 import BlogCard from "./BlogCard";
-import TablaCliente from "./AcountTable";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { TablaCliente } from "./AcountTable";
 
 const styles = (theme) => ({
   blogContentWrapper: {
@@ -26,24 +26,14 @@ const styles = (theme) => ({
   },
 });
 
-
-
 function Blog(props) {
- 
-
-  
   return (
-    <Box
-      display="flex"
-      justifyContent="center"
-    >
+    <Box display="flex" justifyContent="center">
       <div>
-       <TablaCliente/>
+        <TablaCliente />
       </div>
     </Box>
   );
 }
-
-
 
 export default withStyles(styles, { withTheme: true })(Blog);

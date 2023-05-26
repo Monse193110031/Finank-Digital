@@ -50,7 +50,7 @@ function AddDialog(props) {
 
   const updateAccounts = async () => {
     const id = props.props.idCuentaBancaria;
-    const monto = parseFloat(ammountRef.current.value);
+    const monto = parseFloat(ammountRef.current.value)+props.props.saldo;
     console.log("props", props.props, id, monto);
     const result = await updateBankAccount({
       id: id,

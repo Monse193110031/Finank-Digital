@@ -40,6 +40,7 @@ function RegisterDialog(props) {
   const registerTermsCheckbox = useRef();
   const registerPassword = useRef();
   const registerEmail = useRef();
+  const registerName = useRef();
   const registerPasswordRepeat = useRef();
 
   const register = useCallback(async () => {
@@ -58,6 +59,7 @@ function RegisterDialog(props) {
     setStatus(null);
     setIsLoading(true);
     const client = await createUser({
+      name: registerName.current.value,
       email: registerEmail.current.value,
       contrasenia: registerPassword.current.value,
     });
@@ -91,6 +93,17 @@ function RegisterDialog(props) {
       hasCloseIcon
       content={
         <Fragment>
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            label="Nombre (s)"
+            autoFocus
+            autoComplete="off"
+            type="text"
+            inputRef={registerName}
+          />
           <TextField
             variant="outlined"
             margin="normal"

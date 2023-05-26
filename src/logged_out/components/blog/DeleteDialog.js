@@ -82,7 +82,7 @@ function AddDialog(props) {
             hideBackdrop
             onFormSubmit={(e) => {
               e.preventDefault();
-              deleteAccount();
+              deleteAccounts();
               handleClose();
             }}
             headline="Eliminar cuenta bancaria"

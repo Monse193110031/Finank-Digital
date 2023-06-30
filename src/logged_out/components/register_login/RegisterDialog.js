@@ -64,6 +64,7 @@ function RegisterDialog(props) {
       nombre: registerName.current.value,
       email: registerEmail.current.value,
       contrasenia: registerPassword.current.value,
+      type: 2,
     });
     console.log("cliente", client);
     const bankAccount = await createBankAccount({

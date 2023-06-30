@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Button } from "@mui/material";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -11,7 +10,7 @@ import AddDialog from "./AddDialog";
 import DeleteDialog from "./DeleteDialog";
 import { useState } from "react";
 import { useEffect } from "react";
-import { getBankAccounts, updateBankAccount } from "../../../DB/db";
+import { getBankAccounts } from "../../../DB/db";
 
 export const TablaCliente = () => {
   const [rows, setRows] = useState([]);
@@ -64,7 +63,7 @@ export const TablaCliente = () => {
                 scope="row"
                 sx={{ fontSize: "medium " }}
               >
-                {row.idCuentaBancaria}
+                {row.Cliente.nombre}
               </TableCell>
               <TableCell align="right" sx={{ fontSize: "medium " }}>
                 {row.numeroCuenta}
@@ -73,10 +72,10 @@ export const TablaCliente = () => {
                 $&nbsp;{row.saldo}
               </TableCell>
               <TableCell align="center">
-                <AddDialog props={row}/>{" "}
+                <AddDialog props={row} />{" "}
               </TableCell>
               <TableCell align="center">
-                <DeleteDialog  props={row}/>
+                <DeleteDialog props={row} />
               </TableCell>
             </TableRow>
           ))}

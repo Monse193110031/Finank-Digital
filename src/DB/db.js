@@ -39,7 +39,22 @@ export async function createBankAccount(account) {
 }
 
 export async function getBankAccounts() {
-  const { data, error } = await supabase.from("CuentaBancaria").select();
+  const { data, error } = await supabase.from("CuentaBancaria").select(`
+  idCuentaBancaria,
+  numeroCuenta,
+  saldo,
+  Cliente(idCliente,nombre)
+  `);
+  return data;
+}
+
+export async function getBankAccountsClients() {
+  const { data, error } = await supabase.from("CuentaBancaria").select(`
+  idCuentaBacaria,
+  numeroCuenta,
+  saldo,
+  Cliente(idCliente,nombre)
+  `);
   return data;
 }
 

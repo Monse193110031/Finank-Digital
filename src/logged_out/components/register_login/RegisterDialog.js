@@ -15,6 +15,8 @@ import ButtonCircularProgress from "../../../shared/components/ButtonCircularPro
 import VisibilityPasswordTextField from "../../../shared/components/VisibilityPasswordTextField";
 import { createBankAccount, createClient, createUser } from "../../../DB/db";
 
+import { v4 as uuidv4 } from "uuid";
+
 const styles = (theme) => ({
   link: {
     transition: theme.transitions.create(["background-color"], {
@@ -59,13 +61,13 @@ function RegisterDialog(props) {
     setStatus(null);
     setIsLoading(true);
     const client = await createUser({
-      name: registerName.current.value,
+      nombre: registerName.current.value,
       email: registerEmail.current.value,
       contrasenia: registerPassword.current.value,
     });
     console.log("cliente", client);
     const bankAccount = await createBankAccount({
-      numeroCuenta: 123,
+      numeroCuenta: uuidv4(),
       saldo: 0.0,
       idCliente: client.idCliente,
     });

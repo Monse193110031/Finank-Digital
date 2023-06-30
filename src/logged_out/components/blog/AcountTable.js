@@ -39,7 +39,7 @@ export const TablaCliente = () => {
           <TableRow>
             <TableCell sx={{ fontSize: "medium " }}>Usuario</TableCell>
             <TableCell align="right" sx={{ fontSize: "medium " }}>
-              Número de Cuenta
+              Número de tarjeta
             </TableCell>
             <TableCell align="right" sx={{ fontSize: "medium " }}>
               Saldo Disponible
